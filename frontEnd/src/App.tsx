@@ -28,8 +28,6 @@ function App(): JSX.Element {
         }
     }, []);
 
-    console.log('git diff ###');
-
     return (
         <>
             {/* redux */}
