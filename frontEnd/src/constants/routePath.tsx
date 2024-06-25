@@ -5,6 +5,7 @@ import Project from '@page/Project';
 import About from '@page/about/About';
 import Home from '@page/Home';
 import Board from '@page/Board/Board';
+import MySchedule from '@page/MySchedule/MySchedule';
 
 interface RoutePath {
     path: string;
@@ -21,7 +22,7 @@ export const ROUTE_PATH: RoutePath[] = [
     { path: '/', Component: <Home /> },
     { path: '/about', Component: <About /> },
     { path: '/project/*', Component: <Project /> },
-    // { path: '/myschedule/*', Component: <MySchedule /> },
+    { path: '/myschedule/*', Component: <MySchedule /> },
     { path: '/Board', Component: <Board /> },
     { path: '/contact', Component: <Contact /> },
     { path: '/blog/*', Component: <Blog /> },
@@ -32,7 +33,7 @@ export const NAVPAGE_OBJECT: NavPage[] = [
     { path: '/', pathName: 'HOME', AuthPage: false },
     { path: '/about', pathName: 'About', AuthPage: false },
     { path: '/project', pathName: 'PROJECT', AuthPage: false },
-    // { path: '/myschedule', pathName: 'MY Calendar', AuthPage: true },
+    { path: '/myschedule', pathName: 'MY Calendar', AuthPage: true },
     { path: '/blog', pathName: 'Blog', AuthPage: false },
     { path: '/Board', pathName: 'Board', AuthPage: false },
     { path: '/contact', pathName: 'Contact', AuthPage: false },

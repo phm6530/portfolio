@@ -1,0 +1,15 @@
+import styled from 'styled-components';
+import { Grid } from '@layout/Grid';
+
+const ScheduleGrid = styled(Grid)`
+    padding-top: 25rem;
+    display: flex;
+`;
+
+const ContentsWrap = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-top: 1.5rem;
+`;
+
+export { ScheduleGrid, ContentsWrap };
