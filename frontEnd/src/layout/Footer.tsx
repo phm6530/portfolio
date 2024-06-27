@@ -82,7 +82,7 @@ export default function Footer() {
                 <FooterIconAlign>
                     <FooterIcon
                         onClick={() =>
-                            Link('https://github.com/phm6530/MYportpolio')
+                            Link('https://github.com/phm6530/MYportfolio')
                         }
                     >
                         <FaGit size={15} />

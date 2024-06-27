@@ -40,7 +40,7 @@ export default function ProjectList(): JSX.Element {
             <ProjectListStyle>
                 <SubTitle>
                     <div className="subText">
-                        <span className="point">MY PORTPOLIO</span>{' '}
+                        <span className="point">MY PORTfOLIO</span>{' '}
                         <span style={{ marginRight: 'auto' }}>LIST</span>
                     </div>
 

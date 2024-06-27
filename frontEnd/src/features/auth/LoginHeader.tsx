@@ -5,7 +5,7 @@ const LoginHeader = () => {
         <LoginHeaderStyle>
             Login
             <p>
-                My Portpolio Admin Login<br></br>
+                My Portfolio Admin Login<br></br>
             </p>
         </LoginHeaderStyle>
     );

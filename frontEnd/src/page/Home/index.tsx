@@ -23,7 +23,7 @@ const Home = () => {
                                 FRONT END & Web Publisher
                             </S.MainPoint>
                             <S.CustomDashBoardTitle $mobileBiger={true}>
-                                PORTPOLIO
+                                PORTFOLIO
                             </S.CustomDashBoardTitle>
                             <S.CustomDashBoardTitle>
                                 WEB DEVELOPER<S.Division>&lt;/&gt;</S.Division>

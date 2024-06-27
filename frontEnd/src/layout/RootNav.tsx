@@ -60,7 +60,7 @@ export default function RootNav() {
                             $darkMode={darkMode}
                             onClick={() => navigate('/')}
                         >
-                            PHM{`'`} Portpolio .
+                            PHM{`'`} Portfolio .
                         </S.MyName>{' '}
                         {/* 햄버거 메뉴 */}
                         <DrawerMenu

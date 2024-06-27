@@ -105,7 +105,7 @@ const fetchToggleComplete = async formData => {
 
 const fetchGit = async () => {
     const response = await fetch(
-        'https://api.github.com/repos/phm6530/MYportpolio/commits',
+        'https://api.github.com/repos/phm6530/MYportfolio/commits',
     );
     await new Promise(resolve => setTimeout(resolve, 3000));
     if (!response.ok) {
