@@ -26,10 +26,10 @@ const SubCategory = styled.div`
     margin-bottom: 1rem;
 `;
 
-const BlogPostRelatedList = () => {
+const BlogPostRelatedList = (): JSX.Element => {
     const { key: postId } = useParams();
 
-    const { data, isLoading, error } = useQuery<BlogPostRelated[]>({
+    const { data } = useQuery<BlogPostRelated[]>({
         queryKey: [queryKey.blogRelated],
         queryFn: () => fetchPostRelated(postId),
         enabled: !!postId,
@@ -38,41 +38,35 @@ const BlogPostRelatedList = () => {
 
     const relatedList = data || [];
 
-    if (isLoading) return 'loading';
-
-    if (error) return 'error';
-
-    if (data) {
-        return (
-            <>
-                {relatedList.length !== 0 && (
-                    <RelatedPostsContainer>
-                        <SubCategory>관련 포스트</SubCategory>
-                        <ListWrapper>
-                            {relatedList.map((item, idx) => {
-                                const {
-                                    post_id,
-                                    post_title,
-                                    create_at,
-                                    thumnail_url,
-                                } = item;
-                                return (
-                                    <BlogPostRelatedItem
-                                        idx={idx}
-                                        key={item.post_id}
-                                        post_id={post_id}
-                                        post_title={post_title}
-                                        create_at={create_at}
-                                        thumnail_url={thumnail_url}
-                                    />
-                                );
-                            })}
-                        </ListWrapper>
-                    </RelatedPostsContainer>
-                )}
-            </>
-        );
-    }
+    return (
+        <>
+            {data && relatedList.length !== 0 && (
+                <RelatedPostsContainer>
+                    <SubCategory>관련 포스트</SubCategory>
+                    <ListWrapper>
+                        {relatedList.map((item, idx) => {
+                            const {
+                                post_id,
+                                post_title,
+                                create_at,
+                                thumnail_url,
+                            } = item;
+                            return (
+                                <BlogPostRelatedItem
+                                    idx={idx}
+                                    key={item.post_id}
+                                    post_id={post_id}
+                                    post_title={post_title}
+                                    create_at={create_at}
+                                    thumnail_url={thumnail_url}
+                                />
+                            );
+                        })}
+                    </ListWrapper>
+                </RelatedPostsContainer>
+            )}
+        </>
+    );
 };
 
 export default BlogPostRelatedList;
