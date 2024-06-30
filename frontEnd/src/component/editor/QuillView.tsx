@@ -16,7 +16,7 @@ const QuillContainer = styled.div`
     }
     img {
         border-radius: 1.5rem;
-        border: 5px solid;
+        border: 5px solid rgba(0, 0, 0, 0.3);
     }
 
     @media ${device.tablet} {

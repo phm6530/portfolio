@@ -6,11 +6,7 @@ import { ReactRouteDom } from 'lib/lib';
 import SkeletonPost from 'component/loading/Skeleton';
 import SearchForm from 'component/ui/SearchForm';
 
-import {
-    NoSeachingData,
-    ProjectListStyle,
-    FlexRow,
-} from '@features/project/ProjectListStyle';
+import * as S from '@features/project/ProjectListStyle';
 
 import useFetchProjectList from '@features/project/hooks/useFetchProjectList';
 import useStore from 'store/zustandStore';
@@ -26,8 +22,11 @@ export default function ProjectList(): JSX.Element {
     const SeachArr = data.filter(e => {
         if (SeachValue === 'All') {
             return true;
-        } else if (SeachValue && SeachValue !== 'All') {
-            return e.hashtag.includes(SeachValue);
+        }
+        if (SeachValue && SeachValue !== 'All') {
+            return e.hashtag.some(tag =>
+                tag.toLowerCase().includes(SeachValue.toLowerCase()),
+            );
         }
         return false;
     });
@@ -37,26 +36,27 @@ export default function ProjectList(): JSX.Element {
 
     return (
         <>
-            <ProjectListStyle>
+            <S.ProjectListStyle>
                 <SubTitle>
                     <div className="subText">
                         <span className="point">MY PORTfOLIO</span>{' '}
                         <span style={{ marginRight: 'auto' }}>LIST</span>
                     </div>
-
                     {/* add Project */}
                     {login && <PostAddBtn />}
                 </SubTitle>
+
                 {/* List */}
-                <FlexRow>
+                <S.FlexRow>
                     <CateGoryButton CateGory={CateGory} type={'queryString'} />
                     {/* 검색창 */}
                     <SearchForm />
-                </FlexRow>
+                </S.FlexRow>
+
                 {!isLoading && SeachValue && SeachArr.length === 0 && (
-                    <NoSeachingData>
+                    <S.NoSeachingData>
                         &quot;{SeachValue}&quot; 키워드와 일치하는 항목이 없음
-                    </NoSeachingData>
+                    </S.NoSeachingData>
                 )}
                 {!isLoading && isError && 'error'}
                 {!isLoading ? (
@@ -77,7 +77,7 @@ export default function ProjectList(): JSX.Element {
                         <SkeletonPost listCnt={6} />
                     </>
                 )}
-            </ProjectListStyle>
+            </S.ProjectListStyle>
         </>
     );
 }
